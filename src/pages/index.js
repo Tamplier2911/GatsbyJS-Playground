@@ -1,13 +1,13 @@
 import React from "react"
-import { graphql } from "gatsby"
-// import { graphql, Link } from "gatsby"
+// import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
-// import Image from "../components/image"
+import Image from "../components/image"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
-  // console.log(data)
+  console.log(data)
   // console.log(data.allMarkdownRemark.edges[0].node.frontmatter)
   // console.log(data.allMarkdownRemark.edges[0].node.html)
   return (
@@ -16,14 +16,22 @@ const IndexPage = ({ data }) => {
       <div>
         <h1>Gatsby Blog</h1>
         <h4>{data.allMarkdownRemark.totalCount}</h4>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
-          <div key={node.id}>
-            <span>
-              {node.frontmatter.title} - {node.frontmatter.date}
-            </span>
-            <p>{node.frontmatter.excerpt}</p>
-          </div>
-        ))}
+        {data.allMarkdownRemark.edges.map(({ node }) => {
+          return (
+            <div key={node.id}>
+              <span>
+                {node.frontmatter.title} - {node.frontmatter.date}
+              </span>
+              <p>{node.excerpt}</p>
+              <p>
+                <Link to={node.fields.slug}>Read more..</Link>
+              </p>
+            </div>
+          )
+        })}
+      </div>
+      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+        <Image />
       </div>
     </Layout>
   )
@@ -42,7 +50,7 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
         node {
@@ -53,6 +61,9 @@ export const query = graphql`
           }
           html
           excerpt
+          fields {
+            slug
+          }
         }
       }
     }
