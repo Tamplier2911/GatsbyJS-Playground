@@ -1,4 +1,5 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+<!--
 <p align="center">
   <a href="https://www.gatsbyjs.org">
     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
@@ -93,5 +94,17 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 ## 💫 Deploy
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
+ -->
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+# GatsbyJS Blog
+
+Playing around with GatsbyJS static pages.
+App created using React.js | Gatsby.js.
+Deployed on Netlify.
+
+Created by Artem Nikolaiev for study purposes.
+
+# Deployment
+
+https://gatsby-on-netlify-s.netlify.com/
